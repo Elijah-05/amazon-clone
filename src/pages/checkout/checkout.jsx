@@ -22,9 +22,9 @@ const Checkout = () => {
 
   return (
     <div className="w-full max-w-7xl mx-auto ">
-      <div className="z-10 flex flex-col md:flex-row gap-2 sticky md:top-[76px] p-2 w-full bg-white shadow-[0px_0px_35px_-15px_rgba(0,0,0,0.3)] mb-6">
+      <div className="z-10 flex flex-col md:flex-row gap-2 sticky top-[-86px] md:top-[76px] p-2 w-full bg-white shadow-[0px_0px_35px_-15px_rgba(0,0,0,0.3)] mb-8">
         {/* Ad Side */}
-        <div className="">
+        <div className=" h-[155px] flex flex-col justify-between">
           <div className="w-full">
             <img src={banner_Ad} alt="banner advertising" />
           </div>
@@ -35,7 +35,7 @@ const Checkout = () => {
         </div>
 
         {/* Total Side */}
-        <div className="flex flex-col justify-center rounded-lg gap-3 bg-gray-200 w-full md:min-w[450px] p-3 ">
+        <div className="flex flex-col justify-center rounded-lg gap-3 bg-gray-200 w-full md:min-w[450px] p-3 top-[150px]  ">
           <p className="text-lg">
             Subtotal ({cart.length} items):{" "}
             <span className=" font-bold">

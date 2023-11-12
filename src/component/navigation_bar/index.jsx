@@ -15,7 +15,7 @@ const NavBar = () => {
   return (
     <div className=" #nav-container sticky top-0 w-full z-50 bg-black py-4 ">
       <div className=" #inner-container max-w-7xl  mx-auto flex items-center justify-between px-2 sm:px-4 gap-4">
-        <div className=" #img-container w-24 shrink-0 cursor-pointer">
+        <div className=" #img-container w-24 p-2 shrink-0 cursor-pointer">
           <Link to="/">
             <img
               className=" w-full translate-y-2"
