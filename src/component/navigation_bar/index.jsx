@@ -5,8 +5,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link, useLocation } from "react-router-dom";
 import { useAtomValue } from "jotai";
 import { getCartNumber } from "../../atoms";
-
-const logo_source = "https://pngimg.com/uploads/amazon/amazon_PNG11.png";
+import { amazon_logo_white } from "../../assets";
 
 const NavBar = () => {
   const cartNumber = useAtomValue(getCartNumber);
@@ -19,7 +18,7 @@ const NavBar = () => {
           <Link to="/">
             <img
               className=" w-full translate-y-2"
-              src={logo_source}
+              src={amazon_logo_white}
               alt="Amazon logo"
             />
           </Link>

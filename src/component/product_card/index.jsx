@@ -15,7 +15,7 @@ const ProductCard = ({ title, price, rate, image, id, onClick }) => {
 
   return (
     <div
-      className=" w-full max-w-[350px] md:max-w-sm m-4 p-4 flex flex-col px-5 items-center justify-between shadow-[0px_0px_35px_-15px_rgba(0,0,0,0.3)] bg-white hover:scale-[1.03] duration-300 "
+      className=" w-full max-w-[350px] md:max-w-sm m-4 p-4 flex flex-col px-5 items-center justify-between shadow-[0px_0px_35px_-15px_rgba(0,0,0,0.3)] bg-white hover:scale-[1.03] duration-300 rounded-md"
       key={id}
     >
       <div className=" w-full ">

@@ -4,7 +4,11 @@
 
 @layer base {
   body {
-    /* background-color: rgb(149, 149, 149); */
+    background-color: rgb(242, 242, 242);
+  }
+
+  .link {
+    color: rgb(0, 151, 221);
   }
 
   img {
