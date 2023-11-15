@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "../../component/banner";
 import ProductCard from "../../component/product_card";
 import { useAtom } from "jotai";
@@ -18,6 +18,12 @@ const product6 =
   "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2023/EBF23/Fuji_Desktop_Single_image_EBF_1x_v8._SY304_CB573698005_.jpg";
 const product7 =
   "https://images-na.ssl-images-amazon.com/images/G/01/dex/2023/Roar/October/D_CC_Roar_OfficeDepot_1023_1X_Furnitrure_v2._SY304_CB577544739_.jpg";
+const product8 =
+  "https://m.media-amazon.com/images/I/71oIaQAmRjL._AC_UL320_.jpg";
+const product9 =
+  "https://m.media-amazon.com/images/I/61ol0f08HLL._AC_UL320_.jpg";
+const product10 =
+  "https://m.media-amazon.com/images/S/mms-media-storage-prod/final/BrandPosts/brandPosts/8ff02abd-00a2-46bf-b434-76661a567ab1/e565255c-523f-4626-9da8-8637f70649d2/media._SL850_FMjpg_.jpeg";
 
 const Home = () => {
   const [cart, setCart] = useAtom(cartItems);
@@ -83,6 +89,30 @@ const Home = () => {
           <ProductCard
             id={7}
             image={product7}
+            title={"office Chair"}
+            price={32.12}
+            rate={2}
+            onClick={handleAddtoCart}
+          />
+          <ProductCard
+            id={8}
+            image={product8}
+            title={"Holiday Cheer Celebration Bath and Shower Gels"}
+            price={64}
+            rate={3}
+            onClick={handleAddtoCart}
+          />
+          <ProductCard
+            id={9}
+            image={product9}
+            title={"office Chair"}
+            price={32.12}
+            rate={2}
+            onClick={handleAddtoCart}
+          />
+          <ProductCard
+            id={10}
+            image={product10}
             title={"office Chair"}
             price={32.12}
             rate={2}

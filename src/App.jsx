@@ -3,12 +3,15 @@ import Home from "./pages/home/Home";
 import MainLayout from "./layout/main_layout";
 import Checkout from "./pages/checkout/checkout";
 import LoginPage from "./pages/login/inde";
+import { auth } from "./firebase";
+import { useEffect } from "react";
+import { useAtomValue, useSetAtom } from "jotai";
+import { user } from "./atoms";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-    // loader: ScrollTop(),
     errorElement: (
       <div>
         <h2>Error Page Not Found!</h2>
@@ -32,6 +35,14 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
+  const setUser = useSetAtom(user);
+
+  useEffect(() => {
+    auth?.onAuthStateChanged((authUser) => {
+      setUser(authUser);
+    });
+  }, []);
+
   return (
     <RouterProvider
       router={router}

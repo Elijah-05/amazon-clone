@@ -1,11 +1,13 @@
-const MenuList = ({ href, text1, text2 }) => {
+import { Link } from "react-router-dom";
+
+const MenuList = ({ link_to, text1, text2, onClick }) => {
   return (
-    <a href={href} className=" cursor-pointer">
+    <Link to={link_to} className=" cursor-pointer" onClick={onClick}>
       <ul className="group text-white hover:outlin outline-1 px-2 hover:text-yellow-400 duration-300">
         <li className="text-sm translate-y-1">{text1}</li>
         <li className="font-bold ">{text2}</li>
       </ul>
-    </a>
+    </Link>
   );
 };
 
