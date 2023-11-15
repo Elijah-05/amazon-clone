@@ -8,6 +8,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    // loader: ScrollTop(),
     errorElement: (
       <div>
         <h2>Error Page Not Found!</h2>

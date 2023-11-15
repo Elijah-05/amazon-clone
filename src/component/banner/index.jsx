@@ -5,7 +5,7 @@ const banner_image_src =
 
 const Banner = ({}) => {
   return (
-    <div className=" h-[450px] w-full -mb-44" style={bannerStyle}>
+    <div className=" banner-height w-full -mb-56" style={bannerStyle}>
       <div className=" h-full bg-gradient-to-b from-transparent from-20% to-100% to-black" />
     </div>
   );

@@ -2,9 +2,9 @@ import React from "react";
 import banner_Ad from "../../assets/image/ad_banner1.jpg";
 import Button from "../../component/button/button";
 import currencyFormatter from "../../utilities/currency_formatter";
-import StarRateIcon from "@mui/icons-material/StarRate";
 import { useAtom } from "jotai";
 import { cartItems } from "../../atoms";
+import CartList from "../../component/cart_list";
 
 const Checkout = () => {
   const [cart, setCart] = useAtom(cartItems);
@@ -17,8 +17,6 @@ const Checkout = () => {
     const idExcludedItems = cart.filter((item) => item.id != id);
     setCart(idExcludedItems);
   }
-
-  console.log("Total Price: ", total_cart_price);
 
   return (
     <div className="w-full max-w-7xl mx-auto ">
@@ -54,37 +52,11 @@ const Checkout = () => {
       <div className="grid gap-5 mb-40">
         {cart.map((item, i) => {
           return (
-            <div
-              className="group flex flex-col sm:flex-row gap-3 rounded-lg mx-3 bg-slate-100 p-1 hover:shadow-lg duration-300"
+            <CartList
+              item={item}
+              onClick={handleRemoveFromCart}
               key={item.id}
-            >
-              <div className="rounded-lg overflow-hidden h-60 w-full max-w-[250px] shrink-0">
-                <img
-                  className=" group-hover:scale-110 duration-300 object-cover"
-                  src={item.image}
-                  alt={item.title}
-                />
-              </div>
-              <div className="flex flex-col justify-between py-2 ">
-                <div className="">
-                  <p className=" font-medium ">{item.title}</p>
-                  <p className=" font-bold text-lg group-hover:text-xl duration-300 ">
-                    {currencyFormatter({ value: item.price, prefix: "$" })}
-                  </p>
-                  {Array(item.rate)
-                    .fill()
-                    .map((star, i) => (
-                      <StarRateIcon className=" text-yellow-400" key={i} />
-                    ))}
-                </div>
-                <div className=" w-full sm:w-56 mt-2">
-                  <Button
-                    label={"Remove from cart"}
-                    onClick={() => handleRemoveFromCart(item.id)}
-                  />
-                </div>
-              </div>
-            </div>
+            />
           );
         })}
       </div>

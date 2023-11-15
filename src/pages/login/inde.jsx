@@ -1,12 +1,29 @@
 import React, { useState } from "react";
 import { amazon_logo_colored } from "../../assets";
 import Button from "../../component/button/button";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 
 const LoginPage = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [userCredential, setUserCredential] = useState({
     user_email: "",
     user_password: "",
   });
+
+  function toggleShowPassword() {
+    setShowPassword(!showPassword);
+  }
+
+  function handleUserInput(e) {
+    let value = e.target.value;
+    if (e.target.name == "email") {
+      setUserCredential({ ...userCredential, user_email: value });
+    }
+    if (e.target.name == "password") {
+      setUserCredential({ ...userCredential, user_password: value });
+    }
+  }
 
   return (
     <div className="w-full mt-8 grid justify-center">
@@ -14,7 +31,7 @@ const LoginPage = () => {
         <img src={amazon_logo_colored} alt="" />
       </div>
 
-      <div className="border border-gray-300 rounded-lg max-w-sm  p-7 my-4">
+      <div className="border border-gray-300 rounded-lg max-w-sm  p-7 mt-2">
         <div className="">
           <h1 className=" text-3xl font-medium mb-5">Sign in</h1>
           <form>
@@ -24,7 +41,9 @@ const LoginPage = () => {
             <input
               type="email"
               id="email"
+              name="email"
               className=" w-full mb-4 h-9 rounded-md border border-gray-800 outline-cyan-700 bg-blue-100 outline-4 indent-2"
+              onChange={(e) => handleUserInput(e)}
             />
             <label
               htmlFor="email"
@@ -33,11 +52,25 @@ const LoginPage = () => {
               <span className="font-bold ">Password</span>
               <span className=" link">Forgot your password?</span>
             </label>
-            <input
-              type="email"
-              id="email"
-              className=" w-full mb-4 h-9 rounded-md border border-gray-800 outline-cyan-700 bg-blue-100 outline-4 indent-2"
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                id="password"
+                name="password"
+                className="  w-full mb-4 h-9 rounded-md border border-gray-800 outline-cyan-700 pr-10 bg-blue-100 outline-4 indent-2"
+                onChange={(e) => handleUserInput(e)}
+              />
+              <div
+                className="absolute top-0 right-2 mt-[4px] cursor-pointer scale-90"
+                onClick={toggleShowPassword}
+              >
+                {!showPassword ? (
+                  <VisibilityOutlinedIcon />
+                ) : (
+                  <VisibilityOffOutlinedIcon />
+                )}
+              </div>
+            </div>
             <div className="">
               <Button label="Continue" />
             </div>

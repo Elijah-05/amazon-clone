@@ -3,8 +3,17 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: rgb(242, 242, 242);
+  }
+
+  .banner-height {
+    height: calc(100vh - 80px);
+    max-height: 1080px;
   }
 
   .link {
