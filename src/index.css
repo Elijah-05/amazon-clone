@@ -11,6 +11,10 @@
     background-color: rgb(242, 242, 242);
   }
 
+  .stroke {
+    border: 1px solid red;
+  }
+
   .banner-height {
     height: calc(100vh - 80px);
     max-height: 1080px;

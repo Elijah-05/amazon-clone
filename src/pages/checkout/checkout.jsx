@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import banner_Ad from "../../assets/image/ad_banner1.jpg";
 import Button from "../../component/button/button";
 import currencyFormatter from "../../utilities/currency_formatter";
@@ -8,6 +9,7 @@ import CartList from "../../component/cart_list";
 
 const Checkout = () => {
   const [cart, setCart] = useAtom(cartItems);
+  const navigate = useNavigate();
 
   const total_cart_price = cart
     .map((item) => item.price)
@@ -16,6 +18,10 @@ const Checkout = () => {
   function handleRemoveFromCart(id) {
     const idExcludedItems = cart.filter((item) => item.id != id);
     setCart(idExcludedItems);
+  }
+
+  function proccedToPayment() {
+    navigate("/payment");
   }
 
   return (
@@ -44,7 +50,7 @@ const Checkout = () => {
             <input type="checkbox" />
             <p className="">This order contains a gift</p>
           </div>
-          <Button label={"Proceed to Checkout"} />
+          <Button label={"Proceed to Checkout"} onClick={proccedToPayment} />
         </div>
       </div>
 

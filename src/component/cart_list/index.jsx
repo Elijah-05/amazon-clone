@@ -5,7 +5,7 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 
 const CartList = ({ item, handleRemoveFromCart }) => {
   return (
-    <div className="group flex flex-col sm:flex-row gap-3 rounded-lg mx-3 bg-slate-200 p-1 border-2 border-gray-300 hover:shadow-lg duration-300">
+    <div className="group flex flex-col sm:flex-row gap-3 rounded-lg bg-slate-200 p-1 border-2 border-gray-300 hover:shadow-lg duration-300">
       <div className="rounded-lg overflow-hidden h-60 w-full max-w-[250px] shrink-0">
         <img
           className=" group-hover:scale-110 duration-300 object-cover"
@@ -25,7 +25,7 @@ const CartList = ({ item, handleRemoveFromCart }) => {
               <StarRateIcon className=" text-yellow-400" key={i} />
             ))}
         </div>
-        <div className=" w-full sm:w-56 mt-2">
+        <div className=" w-full md:w-56 mt-2">
           <Button
             label={"Remove from cart"}
             onClick={() => handleRemoveFromCart(item.id)}

@@ -7,14 +7,15 @@ import { auth } from "./firebase";
 import { useEffect } from "react";
 import { useAtomValue, useSetAtom } from "jotai";
 import { user } from "./atoms";
+import Payment from "./pages/payment";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
     errorElement: (
-      <div>
-        <h2>Error Page Not Found!</h2>
+      <div className=" h-screen border  border-red-500 flex justify-center items-center">
+        <h2 className=" text-2xl">Page Not Found!</h2>
       </div>
     ),
     children: [
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/checkout",
         element: <Checkout />,
+      },
+      {
+        path: "/payment",
+        element: <Payment />,
       },
     ],
   },
