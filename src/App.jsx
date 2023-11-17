@@ -8,6 +8,13 @@ import { useEffect } from "react";
 import { useAtomValue, useSetAtom } from "jotai";
 import { user } from "./atoms";
 import Payment from "./pages/payment";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import Orders from "./pages/orders";
+
+const promise = loadStripe(
+  "pk_test_51OD3ZwHeeBDcm0QrNT3JSEHZmqV9IMxAnvD0blrw66CSXsIZqBcem2ZbpsPRW31en6eGXq4jFtTLlc07z3fV8rKQ00NlDev1uu"
+);
 
 const router = createBrowserRouter([
   {
@@ -29,7 +36,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment",
-        element: <Payment />,
+        element: (
+          <Elements stripe={promise}>
+            <Payment />
+          </Elements>
+        ),
+      },
+      {
+        path: "/orders",
+        element: <Orders />,
       },
     ],
   },

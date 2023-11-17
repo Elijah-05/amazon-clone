@@ -210,6 +210,7 @@ const LoginPage = () => {
         onClick={handleCreateAccount}
         loading={signUpLoad}
         disabled={disableButton}
+        signUp
       />
     </div>
   );

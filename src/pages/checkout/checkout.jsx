@@ -3,17 +3,14 @@ import { useNavigate } from "react-router-dom";
 import banner_Ad from "../../assets/image/ad_banner1.jpg";
 import Button from "../../component/button/button";
 import currencyFormatter from "../../utilities/currency_formatter";
-import { useAtom } from "jotai";
-import { cartItems } from "../../atoms";
+import { useAtom, useAtomValue } from "jotai";
+import { cartItems, priceInCart } from "../../atoms";
 import CartList from "../../component/cart_list";
 
 const Checkout = () => {
   const [cart, setCart] = useAtom(cartItems);
+  const cartPrice = useAtomValue(priceInCart);
   const navigate = useNavigate();
-
-  const total_cart_price = cart
-    .map((item) => item.price)
-    .reduce((acc, cur) => acc + cur, 0);
 
   function handleRemoveFromCart(id) {
     const idExcludedItems = cart.filter((item) => item.id != id);
@@ -43,7 +40,7 @@ const Checkout = () => {
           <p className="text-lg">
             Subtotal ({cart.length} items):{" "}
             <span className=" font-bold">
-              {currencyFormatter({ value: total_cart_price, prefix: "$" })}
+              {currencyFormatter({ value: cartPrice, prefix: "$" })}
             </span>
           </p>
           <div className="flex gap-2">
@@ -61,7 +58,7 @@ const Checkout = () => {
             <CartList
               item={item}
               onClick={handleRemoveFromCart}
-              key={item.id}
+              key={`${item.id}${i}`}
             />
           );
         })}
