@@ -3,9 +3,13 @@ import Button from "../button/button";
 import currencyFormatter from "../../utilities/currency_formatter";
 import StarRateIcon from "@mui/icons-material/StarRate";
 
-const CartList = ({ item, onClick }) => {
+const CartList = ({ item, onClick, hideButton }) => {
   return (
-    <div className="group flex flex-col sm:flex-row gap-3 rounded-lg bg-white hover:bg-slate-100 p-1 border-2 border-gray-300 hover:shadow-lg duration-300">
+    <div
+      className={`${
+        !hideButton && "group hover:bg-slate-100 hover:shadow-lg duration-300"
+      } flex flex-col sm:flex-row gap-3 rounded-lg bg-white  p-1 border-2 border-gray-300 `}
+    >
       <div className="rounded-lg overflow-hidden h-60 w-full max-w-[250px] shrink-0">
         <img
           className=" group-hover:scale-110 duration-300 object-cover"
@@ -25,9 +29,14 @@ const CartList = ({ item, onClick }) => {
               <StarRateIcon className=" text-yellow-400" key={i} />
             ))}
         </div>
-        <div className=" w-full md:w-56 mt-2">
-          <Button label={"Remove from cart"} onClick={() => onClick(item.id)} />
-        </div>
+        {!hideButton && (
+          <div className=" w-full md:w-56 mt-2">
+            <Button
+              label={"Remove from cart"}
+              onClick={() => onClick(item.id)}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

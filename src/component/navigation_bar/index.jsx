@@ -45,7 +45,13 @@ const NavBar = () => {
             // link_to={userInfo ? "/login"}
             onClick={handleSignOUt}
           />
-          <MenuList text1={"Returns"} text2={"& Orders"} />
+          <MenuList
+            text1={"Returns"}
+            text2={"& Orders"}
+            link_to={"/orders"}
+            pathname={pathname}
+            matchname={"/orders"}
+          />
           <MenuList text1={"Your"} text2={"Prime"} />
           <Link to="/checkout">
             <div

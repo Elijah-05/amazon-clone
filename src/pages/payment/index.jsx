@@ -85,7 +85,7 @@ const Payment = () => {
         setLoading(false);
         setError(null);
         setCart([]);
-        navigate("/");
+        navigate("/orders");
       });
   }
 
@@ -111,7 +111,7 @@ const Payment = () => {
             </div>
             <div className="p-4  w-full">
               <h1 className="text-center sm:text-left">
-                {userData?.email} 123 Street Line Chicago,
+                {userData?.email} Adwa Avenue, Addis Ababa
               </h1>
             </div>
           </div>
