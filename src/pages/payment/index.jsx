@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import Button from "../../component/button/button";
 import currencyFormatter from "../../utilities/currency_formatter";
-import axios from "./axios";
 import instance from "./axios";
 import { db } from "../../firebase";
 
@@ -25,12 +24,6 @@ const Payment = () => {
 
   const stripe = useStripe();
   const elements = useElements();
-
-  // const errorDependency = useMemo(() => error, [error]);
-
-  // useEffect(() => {
-  //   error && setDisable(true);
-  // }, [loading, errorDependency]);
 
   useEffect(() => {
     const getClientSecret = async () => {

@@ -1,4 +1,3 @@
-import React from "react";
 import CartList from "../cart_list";
 import moment from "moment/moment";
 import currencyFormatter from "../../utilities/currency_formatter";
@@ -24,7 +23,7 @@ const OrderCard = ({ orderData }) => {
         </div>
         <div className=" grid gap-3">
           {cartItems.map((item, i) => {
-            return <CartList item={item} hideButton />;
+            return <CartList item={item} hideButton key={item?.id} />;
           })}
         </div>
       </div>

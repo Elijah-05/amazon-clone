@@ -1,16 +1,15 @@
 import { useAtomValue } from "jotai";
-import React, { useEffect, useState } from "react";
 import { user } from "../../atoms";
 import { db } from "../../firebase";
-import CartList from "../../component/cart_list";
 import OrderCard from "../../component/order_card";
+import { useEffect, useState } from "react";
 
 const Orders = () => {
   const userData = useAtomValue(user);
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    if (!!userData) {
+    if (userData) {
       db.collection("users")
         .doc(userData?.uid)
         .collection("orders")
@@ -26,7 +25,7 @@ const Orders = () => {
     }
   }, [userData]);
 
-  console.log("Data: ", orders);
+  console.log("Dataaaa: ", orders);
 
   return (
     <div className=" max-w-5xl mx-auto pt-6 mb-72 sm:px-3">
@@ -34,8 +33,8 @@ const Orders = () => {
         Your Orders
       </h1>
       <div className="grid gap-10 mt-4">
-        {orders?.map((order, i) => {
-          return <OrderCard orderData={order} />;
+        {orders?.map((order) => {
+          return <OrderCard orderData={order} key={order?.id} />;
         })}
       </div>
     </div>

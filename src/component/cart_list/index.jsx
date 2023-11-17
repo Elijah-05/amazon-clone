@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "../button/button";
 import currencyFormatter from "../../utilities/currency_formatter";
 import StarRateIcon from "@mui/icons-material/StarRate";
