@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MenuList from "../nav_menu_list_text";
 import SearchBar from "../search_bar";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -12,8 +12,23 @@ import { auth } from "../../firebase";
 const NavBar = () => {
   const userInfo = useAtomValue(user);
   const cartNumber = useAtomValue(getCartNumber);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const { pathname } = useLocation();
   const navigate = useNavigate();
+
+  const windowHeight = window.innerHeight;
+  const documentHeight = document.documentElement.scrollHeight - windowHeight;
+
+  useEffect(() => {
+    const handleScrollEvent = () => {
+      setScrollPosition(Math.floor((window.scrollY / documentHeight) * 100));
+    };
+
+    window.addEventListener("scroll", handleScrollEvent);
+    return () => {
+      window.removeEventListener("scroll", handleScrollEvent);
+    };
+  });
 
   function handleSignOUt() {
     if (userInfo) {
@@ -24,7 +39,7 @@ const NavBar = () => {
   }
 
   return (
-    <div className=" #nav-container sticky top-0 w-full z-50 bg-black py-4 ">
+    <div className=" #nav-container w-full bg-black py-4 ">
       <div className=" #inner-container max-w-7xl  mx-auto flex items-center justify-between px-2 sm:px-4 gap-4">
         <div className=" #img-container w-24 sm:w-28 p-2 shrink-0 cursor-pointer">
           <Link to="/">
@@ -68,6 +83,10 @@ const NavBar = () => {
           <MenuIcon className=" text-white scale-125" />
         </div>
       </div>
+      <div
+        className={`absolute bottom-0 translate-y-[6px] h-[6px] bg-yellow-500 duration-700`}
+        style={{ width: `${scrollPosition}%` }}
+      />
     </div>
   );
 };

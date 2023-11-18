@@ -11,6 +11,7 @@ import Payment from "./pages/payment";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Orders from "./pages/orders";
+import PageNotFound from "./pages/page_not_found";
 
 const promise = loadStripe(
   "pk_test_51OD3ZwHeeBDcm0QrNT3JSEHZmqV9IMxAnvD0blrw66CSXsIZqBcem2ZbpsPRW31en6eGXq4jFtTLlc07z3fV8rKQ00NlDev1uu"
@@ -20,11 +21,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-    errorElement: (
-      <div className=" h-screen border  border-red-500 flex justify-center items-center">
-        <h2 className=" text-2xl">Page Not Found!</h2>
-      </div>
-    ),
+    errorElement: <PageNotFound />,
     children: [
       {
         path: "/",

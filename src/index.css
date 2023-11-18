@@ -16,6 +16,7 @@
   }
 
   .banner-height {
+    min-height: 450px;
     height: calc(100vh - 80px);
     max-height: 1080px;
   }
