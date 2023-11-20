@@ -22,7 +22,7 @@ const Footer = () => {
           Back to top
         </p>
       </div>
-      <div className=" borde mx-auto max-w-6xl flex justify-between py-8 ">
+      <div className="  mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  justify-between p-8 gap-y-4 ">
         <FooterList head={"Get to Know Us"} lists={footer_data.know_us} />
         <FooterList
           head={"Make Money with Us"}
@@ -38,15 +38,16 @@ const Footer = () => {
         <div className=" w-20 mx-auto">
           <img src={amazon_logo_white} alt="" />
         </div>
-        <a className="group text-slate-400 hover:text-slate-300 cursor-pointer animate-pulse hover:animate-none text-center duration-500">
+        <p className="group text-slate-400  cursor-pointer animate-pulse hover:animate-none text-center duration-500">
           Amazon Clone, developed by{" "}
           <a
-            href=""
+            href="https://ellaportfolio.netlify.app/"
+            target="_blank"
             className="text-yellow-500 group-hover:text-yellow-400 duration-400"
           >
             Elyas Abebe
           </a>
-        </a>
+        </p>
       </div>
     </div>
   );
